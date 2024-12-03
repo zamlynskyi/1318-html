@@ -1,24 +1,167 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Майстри Джедаї</title>
-    <link
-      rel="shortcut icon"
-      href="img/jedi.jpg"
-      type="image/x-icon"
-    />
-    <script
-      src="https://unpkg.com/htmx.org@1.9.10"
-      integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
-      crossorigin="anonymous"
-    ></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CatPhotoApp</title>
+    <style>
+      /* Загальні стилі */
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+        color: #333;
+      }
+      main {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      h1, h2, h3 {
+        color: #2c3e50;
+        text-align: center;
+      }
+      p, ul, ol, label {
+        margin: 10px 0;
+      }
+
+      /* Секція фото */
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 10px auto;
+        border-radius: 8px;
+      }
+      figure {
+        text-align: center;
+        margin: 20px 0;
+      }
+      figcaption {
+        font-style: italic;
+        color: #7f8c8d;
+      }
+
+      /* Список */
+      ul, ol {
+        padding-left: 20px;
+      }
+      ul li, ol li {
+        margin: 5px 0;
+      }
+
+      /* Форма */
+      form {
+        margin-top: 20px;
+        padding: 15px;
+        background: #ecf0f1;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+      fieldset {
+        margin-bottom: 15px;
+        border: 1px solid #bdc3c7;
+        border-radius: 5px;
+        padding: 10px;
+      }
+      legend {
+        font-weight: bold;
+        color: #2c3e50;
+      }
+      input[type="text"], button {
+        display: block;
+        width: calc(100% - 20px);
+        margin: 10px auto;
+        padding: 10px;
+        border: 1px solid #bdc3c7;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+      button {
+        background: #3498db;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #2980b9;
+      }
+
+      /* Футер */
+      footer {
+        text-align: center;
+        margin-top: 20px;
+        color: #7f8c8d;
+      }
+      footer a {
+        color: #3498db;
+        text-decoration: none;
+      }
+      footer a:hover {
+        text-decoration: underline;
+      }
+    </style>
   </head>
   <body>
-    <h1>Майстри Джедаї</h1>
-    <h2>Обі Ван Кенобі</h2>
-    <img width="300px" src="img/jedi.jpg" alt="Обі Ван Кенобі">
+    <main>
+      <h1>CatPhotoApp</h1>
+      <section>
+        <h2>Cat Photos</h2>
+        <p>Everyone loves <a href="https://cdn.freecodecamp.org/curriculum/cat-photo-app/running-cats.jpg">cute cats</a> online!</p>
+        <p>See more <a target="_blank" href="https://freecatphotoapp.com">cat photos</a> in our gallery.</p>
+        <a href="https://freecatphotoapp.com"><img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg" alt="A cute orange cat lying on its back."></a>
+      </section>
+      <section>
+        <h2>Cat Lists</h2>
+        <h3>Things cats love:</h3>
+        <ul>
+          <li>cat nip</li>
+          <li>laser pointers</li>
+          <li>lasagna</li>
+        </ul>
+        <figure>
+          <img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/lasagna.jpg" alt="A slice of lasagna on a plate.">
+          <figcaption>Cats <em>love</em> lasagna.</figcaption>  
+        </figure>
+        <h3>Top 3 things cats hate:</h3>
+        <ol>
+          <li>flea treatment</li>
+          <li>thunder</li>
+          <li>other cats</li>
+        </ol>
+        <figure>
+          <img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/cats.jpg" alt="Five cats looking around a field.">
+          <figcaption>Cats <strong>hate</strong> other cats.</figcaption>  
+        </figure>
+      </section>
+      <section>
+        <h2>Cat Form</h2>
+        <form action="https://freecatphotoapp.com/submit-cat-photo">
+          <fieldset>
+            <legend>Is your cat an indoor or outdoor cat?</legend>
+            <label><input id="indoor" type="radio" name="indoor-outdoor" value="indoor" checked> Indoor</label>
+            <label><input id="outdoor" type="radio" name="indoor-outdoor" value="outdoor"> Outdoor</label>
+          </fieldset>
+          <fieldset>
+            <legend>What's your cat's personality?</legend>
+            <input id="loving" type="checkbox" name="personality" value="loving" checked> <label for="loving">Loving</label>
+            <input id="lazy" type="checkbox" name="personality" value="lazy"> <label for="lazy">Lazy</label>
+            <input id="energetic" type="checkbox" name="personality" value="energetic"> <label for="energetic">Energetic</label>
+          </fieldset>
+          <input type="text" name="catphotourl" placeholder="cat photo URL" required>
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <p>
+        No Copyright - <a href="https://www.freecodecamp.org">freeCodeCamp.org</a>
+      </p>
+    </footer>
   </body>
 </html>
